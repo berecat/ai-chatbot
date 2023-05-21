@@ -1,5 +1,5 @@
 CREATE TABLE user (
-	username INTEGER NOT NULL PRIMARY KEY,
+	username TEXT NOT NULL PRIMARY KEY,
 	pw TEXT NOT NULL UNIQUE,
 	d_name TEXT NULL,
 	bio TEXT NULL,
@@ -31,17 +31,17 @@ CREATE TABLE chat (
 	mode INTEGER NOT NULL,
 	title TEXT NULL,
 	date_modified TEXT NULL,
-	date_created TEXT NOT NULL,
-	user_id INTEGER NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES user (username)
+	date_created TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	username TEXT NOT NULL,
+	FOREIGN KEY (username) REFERENCES user (username)
 );
 
 CREATE TABLE message (
 	id INTEGER NOT NULL PRIMARY KEY,
 	content TEXT NOT NULL,
 	sender INTEGER NOT NULL,
-	date_sent REAL NOT NULL,
-	time_sent REAL NOT NULL,
+	date_sent TEXT NOT NULL,
+	time_sent TEXT NOT NULL,
 	chat_id INTEGER NOT NULL,
 	FOREIGN KEY (chat_id) REFERENCES chat (id)
 );
