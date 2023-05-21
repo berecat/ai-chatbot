@@ -1,11 +1,12 @@
 import openai
 import config
+import datetime
 from typing import Union, Dict, List
 
 openai.api_key = config.api_key
 __initial_prompt = ""
 __initial_role = ""
-__message_stream: Union[List[Dict[str, str]], List[Dict[str, str]]] = []
+__message_stream: Union[List[Dict[str, str]], List[Dict[str, str]], List[Dict[str, datetime]]] = []
 
 
 def new_chat(mode, user_name, user_like, user_dislike, user_personality, user_gender, chatbot_gender):
@@ -53,10 +54,10 @@ def send_message(message):
     """
     This function is used to send a message to the chatbot
     :param message: The message to be sent to the chatbot
-    :return: The response from the chatbot
+    :return: A dictionary containing the content of the message and the time the message was sent
     """
 
-    __message_stream.append({"role": "user", "content": message})
+    __message_stream.append({"role": "user", "content": message, "time": datetime.datetime.now()})
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -64,14 +65,14 @@ def send_message(message):
     )
 
     response_text_format = response.choices[0].message.content
-    __message_stream.append({"role": __initial_role, "content": response_text_format})
+    __message_stream.append({"role": __initial_role, "content": response_text_format, "time": datetime.datetime.now()})
 
-    return response_text_format
+    return __message_stream[-1]
 
 
-def load_message_stream(is_user, message):
+def load_message_on_stream(is_user, message):
     """
-    This function is used to load the message stream
+    This function is used to load the message on the stream
     :param is_user: Whether the message is from the user or not
     :param message: The message to be loaded
     :return:
