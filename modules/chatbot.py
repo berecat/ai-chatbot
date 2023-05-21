@@ -77,3 +77,19 @@ def get_message_stream(message_index):
     """
 
     return __message_stream[message_index]["content"]
+
+
+def load_message_stream(is_user, message):
+    """
+    This function is used to load the message stream
+    :param is_user: Whether the message is from the user or not
+    :param message: The message to be loaded
+    :return:
+    """
+
+    if is_user:
+        __message_stream.append({"role": "user", "content": message})
+    else:
+        __message_stream.append({"role": __initial_role, "content": message})
+
+    pass
