@@ -23,8 +23,6 @@ def create_connection(db_file):
 
 
 # NOTE: Parameters are dictionaries
-
-
 def create_user(username, pw, age):
     conn = create_connection(database)
     user = [username, pw, age]
