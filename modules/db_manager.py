@@ -59,12 +59,15 @@ def create_msg(content, sender, date_sent, time_sent, chat_id):
 	conn = create_connection(database)
 	msg = [content, sender, date_sent, time_sent, chat_id]
 	with conn:
-		sql = "INSERT INTO message (content, sender, date_sent, time_sent, chat_id) VALUES (?,?,?,?,?)"
-		cur = conn.cursor()
-		cur.execute("PRAGMA foreign_keys = ON")
-		cur.execute(sql, msg)
-		conn.commit()
-		return cur.lastrowid
+		try:
+			sql = "INSERT INTO message (content, sender, date_sent, time_sent, chat_id) VALUES (?,?,?,?,?)"
+			cur = conn.cursor()
+			cur.execute("PRAGMA foreign_keys = ON")
+			cur.execute(sql, msg)
+			conn.commit()
+			return cur.lastrowid
+		except Error as e:
+			print(e)
 
 
 # Return all messages in that chat
