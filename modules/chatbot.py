@@ -69,16 +69,6 @@ def send_message(message):
     return response_text_format
 
 
-def get_message_stream(message_index):
-    """
-    This function is used to get the message stream
-    :param message_index:  The index of the message
-    :return: The content of the message at the index
-    """
-
-    return __message_stream[message_index]["content"]
-
-
 def load_message_stream(is_user, message):
     """
     This function is used to load the message stream
@@ -93,3 +83,12 @@ def load_message_stream(is_user, message):
         __message_stream.append({"role": __initial_role, "content": message})
 
     pass
+
+
+def get_message_stream():
+    """
+    This function is used to get the message stream
+    :return: A list of dictionary containing the message stream
+    """
+
+    return __message_stream
