@@ -3,19 +3,19 @@ CREATE TABLE user (
 	pw TEXT NOT NULL UNIQUE,
 	d_name TEXT DEFAULT NULL,
 	bio TEXT DEFAULT NULL,
-	age INTEGER NOT NULL
+	age INTEGER DEFAULT NULL
 );
 
 CREATE TABLE u_like (
 	id INTEGER PRIMARY KEY,
-	like TEXT NOT NULL,
+	user_like TEXT NOT NULL,
 	user_id TEXT NOT NULL,
 	FOREIGN KEY (user_id) REFERENCES user (username) ON DELETE CASCADE
 );
 
 CREATE TABLE u_dislike (
 	id INTEGER PRIMARY KEY,
-	dislike TEXT NOT NULL,
+	user_dislike TEXT NOT NULL,
 	user_id TEXT NOT NULL,
 	FOREIGN KEY (user_id) REFERENCES user (username) ON DELETE CASCADE
 );

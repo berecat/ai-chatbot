@@ -24,14 +24,62 @@ def create_connection(db_file):
 
 # NOTE: Parameters are dictionaries
 # Please create another function to edit the user's profile (like age, likes, dislikes, bio, etc.)
-def create_user(username, pw, age):
+def create_user(username, pw):
     conn = create_connection(database)
-    user = [username, pw, age]
+    user = [username, pw]
     with conn:
         try:
-            sql = "INSERT INTO user (username, pw, age) VALUES (?,?,?)"# Change age to email.
+            sql = "INSERT INTO user (username, pw) VALUES (?,?)"
             cur = conn.cursor()
             cur.execute(sql, user)
+            conn.commit()
+            return cur.lastrowid
+        except Error as e:
+            print(e)
+
+
+def create_like(user_like, username, conn):
+    if len(user_like) == 0:
+        return -1
+
+    like = [user_like, username]
+    try:
+        sql = "INSERT INTO u_like (user_like, user_id) VALUES (?,?)"
+        cur = conn.cursor()
+        cur.execute("PRAGMA foreign_keys = ON")
+        cur.execute(sql, like)
+        conn.commit()
+        return cur.lastrowid
+    except Error as e:
+        print(e)
+
+
+def create_dislike(user_dislike, username, conn):
+    if len(user_dislike) == 0:
+        return -1
+
+    dislike = [user_dislike, username]
+    try:
+        sql = "INSERT INTO u_dislike (user_dislike, user_id) VALUES (?,?)"
+        cur = conn.cursor()
+        cur.execute("PRAGMA foreign_keys = ON")
+        cur.execute(sql, like)
+        conn.commit()
+        return cur.lastrowid
+    except Error as e:
+        print(e)
+
+
+def edit_user_profile(u_username, u_age, likes, dislikes, u_bio):
+    conn = create_connection(database)
+    create_like(like, conn)
+    create_like(dislike, conn)
+    profile = [u_age, u_bio, u_username]
+    with conn:
+        try:
+            sql = "UPDATE user SET age=?, bio=? WHERE username=?"
+            cur = conn.cursor()
+            cur.execute(sql, profile)
             conn.commit()
             return cur.lastrowid
         except Error as e:
