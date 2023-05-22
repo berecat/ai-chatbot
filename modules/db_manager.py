@@ -39,9 +39,6 @@ def create_user(username, pw):
 
 
 def create_like(user_like, username, conn):
-    if len(user_like) == 0:
-        return -1
-
     like = [user_like, username]
     try:
         sql = "INSERT INTO u_like (user_like, user_id) VALUES (?,?)"
@@ -55,9 +52,6 @@ def create_like(user_like, username, conn):
 
 
 def create_dislike(user_dislike, username, conn):
-    if len(user_dislike) == 0:
-        return -1
-
     dislike = [user_dislike, username]
     try:
         sql = "INSERT INTO u_dislike (user_dislike, user_id) VALUES (?,?)"
@@ -72,8 +66,12 @@ def create_dislike(user_dislike, username, conn):
 
 def edit_user_profile(u_username, u_age, likes, dislikes, u_bio):
     conn = create_connection(database)
-    create_like(like, conn)
-    create_like(dislike, conn)
+
+    for like in likes:
+        create_like(like, conn)
+    for dislike in dislikes:
+        create_dislike(dislike, conn)
+
     profile = [u_age, u_bio, u_username]
     with conn:
         try:
