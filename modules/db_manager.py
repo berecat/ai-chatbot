@@ -153,7 +153,3 @@ def select_user(username):
         cur.execute("SELECT * FROM user WHERE username = ?", (username,))
         rows = cur.fetchall()
         return rows
-
-
-if __name__ == "__main__":
-    create_chat(int(Mode.FRIENDLY), "dasd", "Clint101404")
