@@ -23,12 +23,13 @@ def create_connection(db_file):
 
 
 # NOTE: Parameters are dictionaries
+# Please create another function to edit the user's profile (like age, likes, dislikes, bio, etc.)
 def create_user(username, pw, age):
     conn = create_connection(database)
     user = [username, pw, age]
     with conn:
         try:
-            sql = "INSERT INTO user (username, pw, age) VALUES (?,?,?)"
+            sql = "INSERT INTO user (username, pw, age) VALUES (?,?,?)"# Change age to email.
             cur = conn.cursor()
             cur.execute(sql, user)
             conn.commit()
