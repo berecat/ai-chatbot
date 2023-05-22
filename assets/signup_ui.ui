@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>QMainWindow</class>
+ <widget class="QDialog" name="QMainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -155,7 +155,6 @@
               <font>
                <family>VT323</family>
                <pointsize>43</pointsize>
-               <weight>50</weight>
                <bold>false</bold>
               </font>
              </property>
@@ -885,7 +884,6 @@
                 <font>
                  <family>Sansation</family>
                  <pointsize>9</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -960,7 +958,6 @@
                 <font>
                  <family>Sansation</family>
                  <pointsize>12</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <kerning>true</kerning>
                 </font>
@@ -1117,7 +1114,6 @@
       <font>
        <family>Sansation</family>
        <pointsize>16</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
