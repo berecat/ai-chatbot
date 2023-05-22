@@ -57,7 +57,7 @@ def create_dislike(user_dislike, username, conn):
         sql = "INSERT INTO u_dislike (user_dislike, user_id) VALUES (?,?)"
         cur = conn.cursor()
         cur.execute("PRAGMA foreign_keys = ON")
-        cur.execute(sql, like)
+        cur.execute(sql, dislike)
         conn.commit()
         return cur.lastrowid
     except Error as e:
