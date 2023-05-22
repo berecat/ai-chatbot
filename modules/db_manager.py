@@ -23,7 +23,6 @@ def create_connection(db_file):
 
 
 # NOTE: Parameters are dictionaries
-# Please create another function to edit the user's profile (like age, likes, dislikes, bio, etc.)
 def create_user(username, pw):
     conn = create_connection(database)
     user = [username, pw]
