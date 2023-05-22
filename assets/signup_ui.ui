@@ -10,6 +10,12 @@
     <height>720</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
@@ -92,7 +98,6 @@
         <font>
          <family>Sansation</family>
          <pointsize>12</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
          <kerning>true</kerning>
         </font>
@@ -135,17 +140,22 @@
       <widget class="QCheckBox" name="keep_signed_in_checkbox">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>470</y>
-         <width>141</width>
-         <height>17</height>
+         <x>100</x>
+         <y>460</y>
+         <width>361</width>
+         <height>20</height>
         </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="font">
         <font>
          <family>Sansation</family>
          <pointsize>9</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -155,7 +165,7 @@
 }</string>
        </property>
        <property name="text">
-        <string>'ve read and agree toTerms &amp; Conditions</string>
+        <string>I've read and agree to the Terms and Conditions</string>
        </property>
        <property name="tristate">
         <bool>false</bool>
@@ -174,7 +184,6 @@
         <font>
          <family>VT323</family>
          <pointsize>36</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
          <kerning>true</kerning>
         </font>
@@ -753,7 +762,6 @@
       <font>
        <family>Sansation</family>
        <pointsize>16</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
