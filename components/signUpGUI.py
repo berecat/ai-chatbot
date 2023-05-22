@@ -1,7 +1,8 @@
-from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox
 import assets.bg_rcs
 import assets.icon_rcs
+import modules.db_manager as db
+from PyQt5 import uic
+from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox
 
 
 class SignUpGUI(QDialog):
@@ -14,6 +15,8 @@ class SignUpGUI(QDialog):
         self.login_button.clicked.connect(self.verify_results)
 
     def verify_results(self):
+        username = self.username_field.text()
+        password = self.password_field.text()
         password = self.password_field.text()
         re_enter_password = self.reenterpassword_field.text()
 
@@ -26,6 +29,9 @@ class SignUpGUI(QDialog):
         if password != re_enter_password:
             show_error_dialog(self, "Passwords do not match.")
             return
+
+        if not db.create_user(username, password):
+            show_error_dialog(self, "Username already exists.")
 
 
 def show_error_dialog(parent, message):
