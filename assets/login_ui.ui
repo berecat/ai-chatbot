@@ -197,7 +197,7 @@
              <property name="styleSheet">
               <string notr="true">#username_div {
 	background-color: rgb(148, 187, 233);
-	border-radius: 15px;
+	border-radius: 25px;
 }</string>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -226,7 +226,7 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>2</width>
+                  <width>7</width>
                   <height>20</height>
                  </size>
                 </property>
@@ -311,7 +311,7 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>5</width>
+                  <width>7</width>
                   <height>20</height>
                  </size>
                 </property>
@@ -341,7 +341,7 @@
              <property name="styleSheet">
               <string notr="true">#password_div {
 	background-color: rgb(148, 187, 233);
-	border-radius: 15px;
+	border-radius: 25px;
 }</string>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -370,7 +370,7 @@
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>2</width>
+                  <width>7</width>
                   <height>20</height>
                  </size>
                 </property>
@@ -455,7 +455,7 @@
                </widget>
               </item>
               <item>
-               <spacer name="password_right_spacer">
+               <spacer name="horizontalSpacer">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
@@ -465,6 +465,42 @@
                 <property name="sizeHint" stdset="0">
                  <size>
                   <width>5</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="icon/icons.qrc">
+                  <normaloff>:/icon/8.png</normaloff>:/icon/8.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="password_right_spacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Minimum</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>7</width>
                   <height>20</height>
                  </size>
                 </property>
@@ -512,7 +548,7 @@
                 <string notr="true">#login_button {
 	color: rgb(255, 255, 255);
 	background-color: qlineargradient(spread:pad, x1:0.238, y1:1, x2:0.642, y2:0.0113636, stop:0 rgba(148, 187, 233, 255), stop:0.494318 rgba(134, 168, 231, 255), stop:1 rgba(133, 148, 217, 255));
-	border-radius: 15px;
+	border-radius: 25px;
 }
 
 #login_button:hover {;
@@ -886,7 +922,7 @@
      <property name="font">
       <font>
        <family>Sansation</family>
-       <pointsize>12</pointsize>
+       <pointsize>9</pointsize>
       </font>
      </property>
      <property name="styleSheet">
