@@ -14,6 +14,20 @@ class EditProfileAndPreferenceGUI(QMainWindow):
         self.setFixedSize(self.size())
         self.show()
 
+        self.login_button.clicked.connect(self.verify_results)
+
+    def verify_results(self):
+        global _username
+        age = self.age_field.text()
+        likes = self.likes_field.text()
+        dislikes = self.dislikes_field.text()
+
+        if age == "" or likes == "" or dislikes == "":
+            show_error_dialog(self, "Please fill in all fields.")
+            return
+
+        db.edit_user_profile(_username, int(age), likes, dislikes)
+
 
 def show_error_dialog(parent, message):
     error_dialog = QMessageBox(parent)
@@ -31,4 +45,4 @@ def main(username):
     window = EditProfileAndPreferenceGUI()
     app.exec_()
 
-
+main("CliGan")
