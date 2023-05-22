@@ -1,0 +1,19 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>user_icon.png</file>
+    <file>help_icon.png</file>
+    <file>delete_icon.png</file>
+    <file>logout_icon.png</file>
+    <file>1.png</file>
+    <file>2.png</file>
+    <file>3.png</file>
+    <file>4.png</file>
+    <file>5.png</file>
+    <file>6.png</file>
+    <file>7.png</file>
+    <file>8.png</file>
+    <file>9.png</file>
+    <file>10.png</file>
+    <file>logo.png</file>
+  </qresource>
+</RCC>
