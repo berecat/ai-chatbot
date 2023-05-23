@@ -28,3 +28,7 @@ class ProfileGUI(QMainWindow):
 
         db.edit_user_profile(self.username, gender, likes, dislikes)
 
+        self.main_page = MainPage()
+        self.main_page.show()
+        self.close()
+

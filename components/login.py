@@ -9,7 +9,7 @@ import assets.icon_rcs
 import modules.db_manager as db
 
 from sign_up import SignUpGUI
-from edit_profile import ProfileGUI
+from main_page import MainPage
 import util
 
 
@@ -35,8 +35,8 @@ class LoginGUI(QDialog):
         if pw not in rows[0]:
             util.show_error_dialog(self, "Incorrect password.")
 
-        self.edit_profile = ProfileGUI(username)
-        self.edit_profile.show()
+        self.main_page = MainPage()
+        self.main_page.show()
         self.close()
 
     def sign_up(self):
