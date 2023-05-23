@@ -64,8 +64,8 @@ def create_dislike(user_dislike, username, conn):
 
 def edit_user_profile(u_username, u_gender, likes, dislikes):
     conn = create_connection(database)
-    create_like(like, conn)
-    create_dislike(dislike, conn)
+    create_like(likes, conn)
+    create_dislike(dislikes, conn)
 
     profile = [u_gender, u_username]
     with conn:
