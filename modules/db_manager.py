@@ -63,15 +63,15 @@ def create_dislike(user_dislike, username, conn):
         print(e)
 
 
-def edit_user_profile(u_username, u_age, likes, dislikes):
+def edit_user_profile(u_username, u_gender, likes, dislikes):
     conn = create_connection(database)
     create_like(like, conn)
     create_dislike(dislike, conn)
 
-    profile = [u_age, u_username]
+    profile = [u_gender, u_username]
     with conn:
         try:
-            sql = "UPDATE user SET age=? WHERE username=?"
+            sql = "UPDATE user SET gender=? WHERE username=?"
             cur = conn.cursor()
             cur.execute(sql, profile)
             conn.commit()
@@ -139,6 +139,18 @@ def select_dislikes(user_id):
         cur.execute("SELECT * FROM u_dislike WHERE user_id = ?", (user_id,))
         rows = cur.fetchall()
         return rows
+
+
+def select_chats_by_user(username):
+    conn = create_connection(database)
+    with conn:
+        try:
+            cur = conn.cursor()
+            cur.execute("SELECT * FROM chat WHERE user_id = ?", (username,))
+            rows = cur.fetchall()
+            return rows
+        except Error as e:
+            print(e)
 
 
 # Get the user
