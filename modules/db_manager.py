@@ -6,7 +6,6 @@ from enum import IntEnum
 database = "../database/aiven.db"
 
 
-# Transfer this code later
 class Mode(IntEnum):
     DATING = 1
     FRIENDLY = 2
@@ -154,12 +153,12 @@ def select_chats_by_user(username):
 
 
 # Get the user
-def select_user(username):
+def select_user(username, value):
     conn = create_connection(database)
     with conn:
         try:
             cur = conn.cursor()
-            cur.execute("SELECT * FROM user WHERE username = ?", (username,))
+            cur.execute(f"SELECT {value} FROM user WHERE username = ?", (username,))
             rows = cur.fetchall()
             return rows
         except Error as e:
