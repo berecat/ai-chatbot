@@ -34,6 +34,7 @@ class LoginGUI(QDialog):
 
         if pw not in rows[0]:
             util.show_error_dialog(self, "Incorrect password.")
+            return 
 
         self.main_page = MainPage()
         self.main_page.show()

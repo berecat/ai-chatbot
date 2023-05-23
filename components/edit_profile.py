@@ -5,6 +5,7 @@ import assets.bg_rcs
 import assets.icon_rcs
 import modules.db_manager as db
 
+from main_page import MainPage
 import util
 
 
