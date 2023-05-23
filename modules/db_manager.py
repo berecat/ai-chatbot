@@ -153,7 +153,7 @@ def select_chats_by_user(username):
 
 
 # Get the user
-def select_user(username, value):
+def select_user(username, value="*"):
     conn = create_connection(database)
     with conn:
         try:
