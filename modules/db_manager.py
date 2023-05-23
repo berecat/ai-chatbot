@@ -63,18 +63,15 @@ def create_dislike(user_dislike, username, conn):
         print(e)
 
 
-def edit_user_profile(u_username, u_age, likes, dislikes, u_bio):
+def edit_user_profile(u_username, u_age, likes, dislikes):
     conn = create_connection(database)
+    create_like(like, conn)
+    create_dislike(dislike, conn)
 
-    for like in likes:
-        create_like(like, conn)
-    for dislike in dislikes:
-        create_dislike(dislike, conn)
-
-    profile = [u_age, u_bio, u_username]
+    profile = [u_age, u_username]
     with conn:
         try:
-            sql = "UPDATE user SET age=?, bio=? WHERE username=?"
+            sql = "UPDATE user SET age=? WHERE username=?"
             cur = conn.cursor()
             cur.execute(sql, profile)
             conn.commit()
@@ -148,7 +145,11 @@ def select_dislikes(user_id):
 def select_user(username):
     conn = create_connection(database)
     with conn:
-        cur = conn.cursor()
-        cur.execute("SELECT * FROM user WHERE username = ?", (username,))
-        rows = cur.fetchall()
-        return rows
+        try:
+            cur = conn.cursor()
+            cur.execute("SELECT * FROM user WHERE username = ?", (username,))
+            rows = cur.fetchall()
+            return rows
+        except Error as e:
+            print(e)
+
