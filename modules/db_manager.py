@@ -141,6 +141,18 @@ def select_dislikes(user_id):
         return rows
 
 
+def select_chats_by_user(username):
+    conn = create_connection(database)
+    with conn:
+        try:
+            cur = conn.cursor()
+            cur.execute("SELECT * FROM chat WHERE user_id = ?", (username,))
+            rows = cur.fetchall()
+            return rows
+        except Error as e:
+            print(e)
+
+
 # Get the user
 def select_user(username):
     conn = create_connection(database)
