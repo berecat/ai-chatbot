@@ -19,14 +19,15 @@ class ProfileGUI(QMainWindow):
 
     def verify_results(self):
         gender = self.gender_field.text()
+        personality = self.personality_field.text()
         likes = self.gender_field.text()
         dislikes = self.dislikes_field.text()
 
-        if gender == "" or likes == "" or dislikes == "":
+        if gender == "" or likes == "" or dislikes == "" or personality == "":
             util.show_error_dialog(self, "Please fill in all fields.")
             return
 
-        db.edit_user_profile(self.username, gender, likes, dislikes)
+        db.edit_user_profile(self.username, gender, personality, likes, dislikes)
 
         self.main_page = MainPage()
         self.main_page.show()
