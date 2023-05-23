@@ -1110,6 +1110,15 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0.465909, x2:1, y2:0.4656
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
+              <layout class="QVBoxLayout" name="verticalLayout_12">
+               <item>
+                <widget class="QPushButton" name="pushButton">
+                 <property name="text">
+                  <string>New Chat</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item>
