@@ -18,13 +18,13 @@ class ProfileGUI(QMainWindow):
         self.login_button.clicked.connect(self.verify_results)
 
     def verify_results(self):
-        age = self.age_field.text()
-        likes = self.likes_field.text()
+        gender = self.gender_field.text()
+        likes = self.gender_field.text()
         dislikes = self.dislikes_field.text()
 
-        if age == "" or likes == "" or dislikes == "":
+        if gender == "" or likes == "" or dislikes == "":
             util.show_error_dialog(self, "Please fill in all fields.")
             return
 
-        db.edit_user_profile(self.username, int(age), likes, dislikes)
+        db.edit_user_profile(self.username, gender, likes, dislikes)
 

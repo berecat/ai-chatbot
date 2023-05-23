@@ -144,7 +144,6 @@ border-radius: 25px;</string>
       <font>
        <family>Sansation</family>
        <pointsize>10</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
        <kerning>true</kerning>
       </font>
@@ -235,7 +234,7 @@ border-radius: 25px;</string>
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Username:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="age_label">
+    <widget class="QLabel" name="gender_label">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -258,7 +257,7 @@ border-radius: 25px;</string>
 </string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Age:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Gender:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QLabel" name="likes_label">
@@ -394,7 +393,7 @@ border-radius: 25px;</string>
       <string>    Username</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="age_field">
+    <widget class="QLineEdit" name="gender_field">
      <property name="geometry">
       <rect>
        <x>170</x>
@@ -431,7 +430,7 @@ border-radius: 25px;</string>
       <bool>false</bool>
      </property>
      <property name="placeholderText">
-      <string>    Age</string>
+      <string>    Gender</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="likes_field">
@@ -606,7 +605,7 @@ background-color: rgb(255, 255, 255,0%);</string>
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
