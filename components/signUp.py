@@ -4,10 +4,15 @@ sys.path.add('/home/ketolumin/Dev/aiven')
 import assets.bg_rcs
 import assets.icon_rcs
 import modules.db_manager as db
+import components.editProfileAndPreference as editPandUi
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMessageBox, QDialog
 
+
 # Do not UNIQUE the password
+_username = ""
+
+
 class SignUpGUI(QDialog):
     def __init__(self):
         super(SignUpGUI, self).__init__()
@@ -18,6 +23,8 @@ class SignUpGUI(QDialog):
         self.login_button_.clicked.connect(self.verify_results)
 
     def verify_results(self):
+        global _username
+
         username = self.username_field_.text()
         password = self.password_field_.text()
         re_enter_password = self.repassword_field.text()
@@ -34,6 +41,10 @@ class SignUpGUI(QDialog):
 
         if not db.create_user(username, password):
             show_error_dialog(self, "Username already exists.")
+            return
+
+        _username = username
+        self.close()
 
 
 def show_error_dialog(parent, message):
@@ -45,9 +56,12 @@ def show_error_dialog(parent, message):
 
 
 def main():
+    global _username
+
     app = QApplication([])
     window = SignUpGUI()
     app.exec()
+    editPandUi.main(_username)
 
 
 if __name__ == '__main__':
