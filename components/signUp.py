@@ -1,10 +1,13 @@
+import sys
+sys.path.add('/home/ketolumin/Dev/aiven')
+
 import assets.bg_rcs
 import assets.icon_rcs
 import modules.db_manager as db
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMessageBox, QDialog
 
-
+# Do not UNIQUE the password
 class SignUpGUI(QDialog):
     def __init__(self):
         super(SignUpGUI, self).__init__()
